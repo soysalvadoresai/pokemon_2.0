@@ -20,5 +20,5 @@ public class PokemonResponse {
 		this.nombre_pokemon = pokemon.getNombre_pokemon();
 		this.tipo_pokemon = pokemon.getTipo_pokemon();
 	}
-
+	
 }
