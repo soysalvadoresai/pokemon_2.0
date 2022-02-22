@@ -1,0 +1,15 @@
+<<<<<<< HEAD
+spring.datasource.url=jdbc:postgresql://ec2-44-192-245-97.compute-1.amazonaws.com:5432/dasub82b4e92td
+spring.datasource.username=gfyipezqyyaxmi
+spring.datasource.password=29366c81c385d2771edd115d89f95b34ed20ae6d8c113688efd5f32f874dea27
+=======
+spring.datasource.url=jdbc:postgresql://localhost:5432/pokemon2.0
+spring.datasource.username=postgres
+spring.datasource.password=1999
+>>>>>>> 0709c427cdbf9b008df539f5effb087a8b6d13b3
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.hbm2ddl.auto=update
+
+
+
