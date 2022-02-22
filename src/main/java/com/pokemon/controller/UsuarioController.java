@@ -22,7 +22,6 @@ public class UsuarioController {
 	@Autowired
 	UsuarioService usuarioService;
 	
-	@CrossOrigin(origins = "http://localhost:8080")
 	@PostMapping("create")
 	public UsuarioResponse createUser (@Valid @RequestBody CreateUserRequest createUserRequest) {
 		Usuario usuario = usuarioService.createUsuario(createUserRequest);
