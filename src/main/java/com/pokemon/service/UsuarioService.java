@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.pokemon.entity.Pokemon;
 import com.pokemon.entity.Usuario;
+import com.pokemon.error.NoUniqueNamesException;
 import com.pokemon.repository.PokemonRepository;
 import com.pokemon.repository.UsuarioRepository;
 import com.pokemon.request.CreatePokemonRequest;
@@ -25,26 +26,33 @@ public class UsuarioService {
 	
 	public Usuario createUsuario (CreateUserRequest createUserRequest) {
 		Usuario usuario = new Usuario(createUserRequest);
-		usuario = usuarioRepository.save(usuario);
 		
-		List<Pokemon> pokemonList = new ArrayList<Pokemon>();
 		
-		if(createUserRequest.getPokemon() != null) {
-			for (CreatePokemonRequest createPokemonRequest : 
-				createUserRequest.getPokemon()) {
-				Pokemon pokemon = new Pokemon();
-				pokemon.setNombre_pokemon(createPokemonRequest.getNombre_pokemon());
-				pokemon.setTipo_pokemon(createPokemonRequest.getTipo_pokemon());
-				pokemon.setUsuario(usuario);
+		if(usuarioRepository.findByNombreTeamOrNombreEntrenador(usuario.getNombreTeam(), usuario.getNombreEntrenador()) != null) {
+			throw new NoUniqueNamesException("El  nombre de usuario, nombre del team y nombre entrenador deben ser únicos.");
+		}
+			usuario = usuarioRepository.save(usuario);
+			
+			List<Pokemon> pokemonList = new ArrayList<Pokemon>();
+			
+			
+			if(createUserRequest.getPokemon() != null) {
+				for (CreatePokemonRequest createPokemonRequest : 
+					createUserRequest.getPokemon()) {
+					Pokemon pokemon = new Pokemon();
+					pokemon.setNombre_pokemon(createPokemonRequest.getNombre_pokemon());
+					pokemon.setTipo_pokemon(createPokemonRequest.getTipo_pokemon());
+					pokemon.setUsuario(usuario);
+					
+					pokemonList.add(pokemon);
+				}
 				
-				pokemonList.add(pokemon);
+				pokemonRepository.saveAll(pokemonList);
+				
 			}
 			
-			pokemonRepository.saveAll(pokemonList);
-			
-		}
+			usuario.setTipoPokemon(pokemonList);
 		
-		usuario.setTipoPokemon(pokemonList);
 		
 		return usuario;
 	}

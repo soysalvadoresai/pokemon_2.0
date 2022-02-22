@@ -29,16 +29,16 @@ public class Usuario {
 	@Column(name = "id")
 	private Long id;
 	
-	@Column(name = "nombre_team")
-	private String nombre_team;
+	@Column(name = "nombre_team", unique = true)
+	private String nombreTeam;
 	
-	@Column(name = "nombre_entrenador")
-	private String nombre_entrenador;
+	@Column(name = "nombre_entrenador" , unique = true)
+	private String nombreEntrenador;
 	
 	@Column(name = "rol")
 	private String rol;
 	
-	@Column(name = "usuario")
+	@Column(name = "usuario" , unique = true)
 	private String usuario;
 	
 	@Column(name = "password")
@@ -48,8 +48,8 @@ public class Usuario {
 	private List<Pokemon> tipoPokemon;
 	
 	public Usuario (CreateUserRequest createUserRequest) {
-		this.nombre_team = createUserRequest.getNombre_team();
-		this.nombre_entrenador = createUserRequest.getNombre_entrenador();
+		this.nombreTeam = createUserRequest.getNombreTeam();
+		this.nombreEntrenador = createUserRequest.getNombreEntrenador();
 		this.rol = createUserRequest.getRol();
 		this.usuario = createUserRequest.getUsuario();
 		this.password = createUserRequest.getPassword();

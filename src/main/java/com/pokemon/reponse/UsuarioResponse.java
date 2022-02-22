@@ -4,6 +4,7 @@ package com.pokemon.reponse;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.pokemon.entity.Pokemon;
 import com.pokemon.entity.Usuario;
 
@@ -16,9 +17,11 @@ public class UsuarioResponse {
 	
 	private Long id;
 	
-	private String nombre_team;
+	@JsonAlias("nombre_team")
+	private String nombreTeam;
 	
-	private String nombre_entrenador;
+	@JsonAlias("nombre_entrenador")
+	private String nombreEntrenador;
 	
 	private String rol;
 	
@@ -30,8 +33,8 @@ public class UsuarioResponse {
 	
 	public UsuarioResponse (Usuario usuario) {
 		this.id = usuario.getId();
-		this.nombre_team = usuario.getNombre_team();
-		this.nombre_entrenador = usuario.getNombre_entrenador();
+		this.nombreTeam = usuario.getNombreTeam();
+		this.nombreEntrenador = usuario.getNombreEntrenador();
 		this.rol = usuario.getRol();
 		this.usuario = usuario.getUsuario();
 		this.password = usuario.getPassword();
