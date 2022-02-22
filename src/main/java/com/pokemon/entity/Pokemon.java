@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,8 +26,10 @@ public class Pokemon {
 	@Column(name = "id")
 	private Long id;
 	
+	@NotNull
 	@Column(name = "nombre_pokemon")
 	private String nombre_pokemon;
+	
 	
 	@Column(name = "tipo_pokemon")
 	private String tipo_pokemon;
