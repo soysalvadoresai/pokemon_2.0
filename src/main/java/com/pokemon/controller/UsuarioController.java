@@ -22,6 +22,7 @@ public class UsuarioController {
 	UsuarioService usuarioService;
 	
 	@PostMapping("create")
+	
 	public UsuarioResponse createUser (@Valid @RequestBody CreateUserRequest createUserRequest) {
 		Usuario usuario = usuarioService.createUsuario(createUserRequest);
 		return new UsuarioResponse(usuario);
