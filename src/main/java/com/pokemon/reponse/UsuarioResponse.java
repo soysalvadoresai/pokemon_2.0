@@ -27,7 +27,6 @@ public class UsuarioResponse {
 	
 	private String usuario;
 	
-	private String password;
 	
 	private List<PokemonResponse> tipoPokemon;
 	
@@ -37,7 +36,6 @@ public class UsuarioResponse {
 		this.nombreEntrenador = usuario.getNombreEntrenador();
 		this.rol = usuario.getRol();
 		this.usuario = usuario.getUsuario();
-		this.password = usuario.getPassword();
 
 		
 		
