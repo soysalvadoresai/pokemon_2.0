@@ -29,7 +29,7 @@ public class UsuarioService {
 		
 		
 		if(usuarioRepository.findByNombreTeamOrNombreEntrenador(usuario.getNombreTeam(), usuario.getNombreEntrenador()) != null) {
-			throw new NoUniqueNamesException("El  nombre de usuario, nombre del team y nombre entrenador deben ser únicos.");
+			throw new NoUniqueNamesException("El  nombre de usuario, nombre del team y nombre entrenador deben ser unicos.");
 		}
 			usuario = usuarioRepository.save(usuario);
 			
