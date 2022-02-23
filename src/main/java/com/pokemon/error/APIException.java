@@ -5,12 +5,14 @@ import org.springframework.http.HttpStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@AllArgsConstructor
 @Getter
+@Setter
 @NoArgsConstructor
-public class ErrorDetails {
-	private HttpStatus httpStatus;
-	private String message;
-	private String details;
+@AllArgsConstructor
+public class APIException extends RuntimeException {
+
+    private HttpStatus status;
+    private String message;
 }

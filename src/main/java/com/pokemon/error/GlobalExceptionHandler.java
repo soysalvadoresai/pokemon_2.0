@@ -13,7 +13,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(NoUniqueNamesException.class)
 	public ResponseEntity<ErrorDetails> handleResourceNoUniqueNamesException(NoUniqueNamesException exception, 
 			WebRequest webrequest){
-		ErrorDetails error = new ErrorDetails(exception.getMessage(), webrequest.getDescription(false));
+		ErrorDetails error = new ErrorDetails(HttpStatus.INTERNAL_SERVER_ERROR, exception.getMessage(), webrequest.getDescription(false));
 		
 		return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
@@ -28,7 +28,16 @@ public class GlobalExceptionHandler {
 		}else {
 			message = " Debe seleccionar al menos un pokemon, y un tipo.";
 		}
-		error = new ErrorDetails(message, webrequest.getDescription(false));
+		error = new ErrorDetails(HttpStatus.INTERNAL_SERVER_ERROR,message, webrequest.getDescription(false));
+		
+		return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	
+	@ExceptionHandler(APIException.class)
+	public ResponseEntity<ErrorDetails> handleResourceBlogAPIException(APIException exception, 
+			WebRequest webrequest){
+		ErrorDetails error = new ErrorDetails(exception.getStatus(), exception.getMessage() , webrequest.getDescription(false));
 		
 		return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
 	}

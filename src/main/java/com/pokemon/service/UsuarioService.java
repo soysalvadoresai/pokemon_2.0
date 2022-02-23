@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -24,9 +25,13 @@ public class UsuarioService {
 	@Autowired
 	PokemonRepository pokemonRepository;
 	
+	@Autowired
+	PasswordEncoder passwordEncoder;
+	
 	public Usuario createUsuario (CreateUserRequest createUserRequest) {
-		Usuario usuario = new Usuario(createUserRequest);
 		
+		Usuario usuario = new Usuario(createUserRequest);
+		usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 		
 		if(usuarioRepository.findByNombreTeamOrNombreEntrenadorOrUsuario(usuario.getNombreTeam(), usuario.getNombreEntrenador(), usuario.getUsuario()) != null) {
 			throw new NoUniqueNamesException("El  nombre de usuario, nombre del team y nombre entrenador deben ser unicos.");
