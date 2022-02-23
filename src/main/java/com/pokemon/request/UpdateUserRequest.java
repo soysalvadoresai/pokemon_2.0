@@ -1,6 +1,12 @@
 package com.pokemon.request;
 
+import java.util.List;
+
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.UniqueElements;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -30,6 +36,12 @@ public class UpdateUserRequest {
 	
 	@NotBlank(message = "Password is required")
 	private String password;
+	
+	@NotNull
+	@NotEmpty
+	@UniqueElements
+	private List<CreatePokemonRequest> pokemon;
+
 
 	
 }

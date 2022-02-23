@@ -3,6 +3,7 @@ package com.pokemon.service;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,8 +59,17 @@ public class UsuarioService {
 		return usuario;
 	}
 	
+	
+	
 	public List<Pokemon> getAllPokemonsByUser(long id){
 		return pokemonRepository.findByUsuarioId(id);
+	}
+		
+		
+	public String deletePokemon(long id) {
+		pokemonRepository.deleteById(id);
+		return "Pokemon deleted succesfully";
+		
 	}
 	
 	public Usuario updateData(UpdateUserRequest updateUser) {
@@ -69,14 +79,32 @@ public class UsuarioService {
 		user.setTeamName(updateUser.getTeamName());
 		user.setRole(updateUser.getRole());
 		user.setPassword(updateUser.getPassword());
-		
+		user = usuarioRepository.save(user);
 		
 		/// Still missing to update the pokemons
+		List<Pokemon> pokemonList = new ArrayList<Pokemon>();
 		
-		user = usuarioRepository.save(user);
+		if(updateUser.getPokemon() != null) {
+			for (CreatePokemonRequest createPokemonRequest : 
+				updateUser.getPokemon()) {
+				Pokemon pokemon = new Pokemon();
+				pokemon.setName(createPokemonRequest.getNombre_pokemon());
+				pokemon.setType(createPokemonRequest.getTipo_pokemon());
+				pokemon.setUsuario(user);
+				
+				pokemonList.add(pokemon);
+			}
+			
+			pokemonRepository.saveAll(pokemonList);
+			
+		}
+		
+		user.setPokemones(pokemonList);
 		
 		return user;
 	}
+	
+	
 	
 	public Usuario getUserbyId(long id) {
 		System.out.println(id);

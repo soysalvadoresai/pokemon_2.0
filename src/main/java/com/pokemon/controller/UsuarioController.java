@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
-
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +25,7 @@ import com.pokemon.entity.Pokemon;
 import com.pokemon.entity.Usuario;
 import com.pokemon.reponse.PokemonResponse;
 import com.pokemon.reponse.UsuarioResponse;
+import com.pokemon.request.CreatePokemonRequest;
 import com.pokemon.request.CreateUserRequest;
 import com.pokemon.request.UpdateUserRequest;
 import com.pokemon.service.UsuarioService;
@@ -65,6 +66,7 @@ public class UsuarioController {
 	@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 
 	@PostMapping("create")
+	//Create a user 
 	@ApiOperation(value="Register the user on Data Base")
 	public UsuarioResponse createUser (@Valid @RequestBody CreateUserRequest createUserRequest) {
 		Usuario usuario = usuarioService.createUsuario(createUserRequest);
@@ -74,16 +76,31 @@ public class UsuarioController {
 	}
 	
 	@PatchMapping("update")
+	//Update the data for the user
 	public UsuarioResponse updateUser(@Valid @RequestBody UpdateUserRequest updateUser) {
-		
 		return new UsuarioResponse(usuarioService.updateData(updateUser));
 	}
 	
 	
 	@GetMapping("user/{id}")
+	//Bring you the hole information about a user
 	public UsuarioResponse getUser(@PathVariable long id) {
 		return new UsuarioResponse(usuarioService.getUserbyId(id));
 	}
+	
+	
+	@DeleteMapping("deletePokemon/{id}")
+	//Delete the pokemon by the pokemon_id
+	public String deletePokemon(@PathVariable long id ) {
+		return usuarioService.deletePokemon(id) ;
+	}
+	
+	
+	/*@PostMapping("addPokemon/{id}")
+	public String addPokemon(@PathVariable long id, @RequestBody CreatePokemonRequest createPokemonRequest) {
+		return "Funcionando";
+	}*/
+	
 	
 
 }

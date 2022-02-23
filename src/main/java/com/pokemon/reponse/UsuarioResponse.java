@@ -4,7 +4,6 @@ package com.pokemon.reponse;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.pokemon.entity.Usuario;
 
