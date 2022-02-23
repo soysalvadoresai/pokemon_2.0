@@ -41,6 +41,7 @@ public class UsuarioController {
 	
 
 	@GetMapping("pokemons/{id}")
+	@ApiOperation(value="Obtaining the pokemons team of selected User by id")
 	public List<PokemonResponse> getAllPokemonsByUser(@PathVariable long id) {
 		List<Pokemon> pokemonList = usuarioService.getAllPokemonsByUser(id);
 		
