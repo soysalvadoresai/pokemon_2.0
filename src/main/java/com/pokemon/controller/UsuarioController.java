@@ -25,7 +25,6 @@ import com.pokemon.entity.Pokemon;
 import com.pokemon.entity.Usuario;
 import com.pokemon.reponse.PokemonResponse;
 import com.pokemon.reponse.UsuarioResponse;
-import com.pokemon.request.CreatePokemonRequest;
 import com.pokemon.request.CreateUserRequest;
 import com.pokemon.request.UpdateUserRequest;
 import com.pokemon.service.UsuarioService;
@@ -95,11 +94,6 @@ public class UsuarioController {
 		return usuarioService.deletePokemon(id) ;
 	}
 	
-	
-	/*@PostMapping("addPokemon/{id}")
-	public String addPokemon(@PathVariable long id, @RequestBody CreatePokemonRequest createPokemonRequest) {
-		return "Funcionando";
-	}*/
 	
 	
 
