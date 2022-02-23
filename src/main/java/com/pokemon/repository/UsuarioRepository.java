@@ -6,5 +6,7 @@ import com.pokemon.entity.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-	Usuario findByNombreTeamOrNombreEntrenadorOrUsuario(String nombreTeam, String nombreEntrenador, String usuario);
+	Usuario findByTeamNameOrTraineerNameOrUsername(String nombreTeam, String nombreEntrenador, String usuario);
+	
+	Usuario findByUsername(String username);
 }

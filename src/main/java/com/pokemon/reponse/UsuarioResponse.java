@@ -1,11 +1,11 @@
 package com.pokemon.reponse;
 
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-import com.pokemon.entity.Pokemon;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.pokemon.entity.Usuario;
 
 import lombok.Getter;
@@ -17,33 +17,35 @@ public class UsuarioResponse {
 	
 	private Long id;
 	
-	@JsonAlias("nombre_team")
-	private String nombreTeam;
+	@JsonProperty("nombre_team")
+	private String teamname;
 	
-	@JsonAlias("nombre_entrenador")
-	private String nombreEntrenador;
+	@JsonProperty("nombre_entrenador")
+	private String traineername;
 	
-	private String rol;
+	@JsonProperty("rol")
+	private String role;
 	
-	private String usuario;
+	@JsonProperty("usuario")
+	private String username;
+	
+	private String password;
 	
 	
 	private List<PokemonResponse> tipoPokemon;
 	
 	public UsuarioResponse (Usuario usuario) {
 		this.id = usuario.getId();
-		this.nombreTeam = usuario.getNombreTeam();
-		this.nombreEntrenador = usuario.getNombreEntrenador();
-		this.rol = usuario.getRol();
-		this.usuario = usuario.getUsuario();
+		this.teamname = usuario.getTeamName();
+		this.traineername = usuario.getTraineerName();
+		this.role = usuario.getRole();
+		this.username = usuario.getUsername();
+		this.password = usuario.getPassword();
 
 		
 		
-		if (usuario.getTipoPokemon() != null) {
-			tipoPokemon = new ArrayList<PokemonResponse>();
-			for (Pokemon pokemon: usuario.getTipoPokemon()) {
-				tipoPokemon.add(new PokemonResponse(pokemon));
-			}
+		if (usuario.getPokemones() != null) {
+			tipoPokemon = usuario.getPokemones().stream().map(PokemonResponse::new).collect(Collectors.toList());
 		}
 	}
 

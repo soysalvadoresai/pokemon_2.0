@@ -21,20 +21,22 @@ public class CreateUserRequest {
 	@NotNull
 	@NotEmpty
 	@JsonProperty("nombre_team")
-	private String nombreTeam;
+	private String teamName;
 	
 	@NotNull
 	@NotEmpty
 	@JsonProperty("nombre_entrenador")
-	private String nombreEntrenador;
+	private String traineerName;
 	
 	@NotNull
 	@NotEmpty
-	private String rol;
+	@JsonProperty("rol")
+	private String role;
 	
 	@NotNull
 	@NotEmpty
-	private String usuario;
+	@JsonProperty("usuario")
+	private String username;
 	
 	@NotNull
 	@NotEmpty

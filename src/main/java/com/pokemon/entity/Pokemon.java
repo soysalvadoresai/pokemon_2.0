@@ -28,11 +28,11 @@ public class Pokemon {
 	
 	@NotNull
 	@Column(name = "nombre_pokemon")
-	private String nombre_pokemon;
+	private String name;
 	
 	
 	@Column(name = "tipo_pokemon")
-	private String tipo_pokemon;
+	private String type;
 	
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")

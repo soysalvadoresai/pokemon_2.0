@@ -5,9 +5,12 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,6 +26,7 @@ import com.pokemon.entity.Usuario;
 import com.pokemon.reponse.PokemonResponse;
 import com.pokemon.reponse.UsuarioResponse;
 import com.pokemon.request.CreateUserRequest;
+import com.pokemon.request.UpdateUserRequest;
 import com.pokemon.service.UsuarioService;
 
 import io.swagger.annotations.Api;
@@ -39,7 +43,10 @@ public class UsuarioController {
 	@Autowired
 	UsuarioService usuarioService;
 	
+	// Logger for information
+	Logger log = LoggerFactory.getLogger(getClass());
 
+	
 	@GetMapping("pokemons/{id}")
 	@ApiOperation(value="Obtaining the pokemons team of selected User by id")
 	public List<PokemonResponse> getAllPokemonsByUser(@PathVariable long id) {
@@ -61,7 +68,22 @@ public class UsuarioController {
 	@ApiOperation(value="Register the user on Data Base")
 	public UsuarioResponse createUser (@Valid @RequestBody CreateUserRequest createUserRequest) {
 		Usuario usuario = usuarioService.createUsuario(createUserRequest);
+		
+		log.info(" The user '" + usuario.getUsername() + "' has been created. ");
 		return new UsuarioResponse(usuario);
 	}
+	
+	@PatchMapping("update")
+	public UsuarioResponse updateUser(@Valid @RequestBody UpdateUserRequest updateUser) {
+		
+		return new UsuarioResponse(usuarioService.updateData(updateUser));
+	}
+	
+	
+	@GetMapping("user/{id}")
+	public UsuarioResponse getUser(@PathVariable long id) {
+		return new UsuarioResponse(usuarioService.getUserbyId(id));
+	}
+	
 
 }
