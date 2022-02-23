@@ -25,6 +25,7 @@ public class UsuarioService {
 	@Autowired
 	PokemonRepository pokemonRepository;
 	
+	@Autowired
 	PasswordEncoder passwordEncoder;
 	
 	public Usuario createUsuario (CreateUserRequest createUserRequest) {

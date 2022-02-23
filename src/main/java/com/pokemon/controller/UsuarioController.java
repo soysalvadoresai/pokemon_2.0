@@ -46,8 +46,11 @@ public class UsuarioController {
 	
 	@Autowired
 	UsuarioService usuarioService;
-    private AuthenticationManager authenticationManager;
+	@Autowired
+	private AuthenticationManager authenticationManager;
+    @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
     private JwtTokenProvider tokenProvider;
 
 	@GetMapping("pokemons/{id}")
