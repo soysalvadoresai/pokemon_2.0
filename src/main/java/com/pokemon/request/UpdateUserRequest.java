@@ -1,9 +1,8 @@
 package com.pokemon.request;
 
-
-
 import java.util.List;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -14,38 +13,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
+
 @Getter
-public class CreateUserRequest {
+@Setter
+public class UpdateUserRequest {
 	
-	@NotNull
-	@NotEmpty
+	@NotBlank(message = "Team name is required")
 	@JsonProperty("nombre_team")
 	private String teamName;
 	
-	@NotNull
-	@NotEmpty
+	@NotBlank(message = "Traineer name is required")
 	@JsonProperty("nombre_entrenador")
 	private String traineerName;
 	
-	@NotNull
-	@NotEmpty
+	@NotBlank(message = "Role is required")
 	@JsonProperty("rol")
 	private String role;
 	
-	@NotNull
-	@NotEmpty
+	@NotBlank(message = "Username is required")
 	@JsonProperty("usuario")
 	private String username;
 	
-	@NotNull
-	@NotEmpty
+	@NotBlank(message = "Password is required")
 	private String password;
 	
 	@NotNull
 	@NotEmpty
 	@UniqueElements
 	private List<CreatePokemonRequest> pokemon;
-		
 
+
+	
 }

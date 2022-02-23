@@ -1,5 +1,6 @@
 package com.pokemon.reponse;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.pokemon.entity.Pokemon;
 
 import lombok.Getter;
@@ -11,14 +12,16 @@ public class PokemonResponse {
 	
 	private Long id;
 	
-	private String nombre_pokemon;
+	@JsonAlias("nombrePokemon")
+	private String name;
 	
-	private String tipo_pokemon;
+	@JsonAlias("tipo_pokemon")
+	private String type;
 	
 	public PokemonResponse (Pokemon pokemon) {
 		this.id = pokemon.getId();
-		this.nombre_pokemon = pokemon.getNombre_pokemon();
-		this.tipo_pokemon = pokemon.getTipo_pokemon();
+		this.name = pokemon.getName();
+		this.type = pokemon.getType();
 	}
 	
 }

@@ -3,6 +3,7 @@ package com.pokemon.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,28 +31,28 @@ public class Usuario {
 	private Long id;
 	
 	@Column(name = "nombre_team", unique = true)
-	private String nombreTeam;
+	private String teamName;
 	
 	@Column(name = "nombre_entrenador" , unique = true)
-	private String nombreEntrenador;
+	private String traineerName;
 	
 	@Column(name = "rol")
-	private String rol;
+	private String role;
 	
 	@Column(name = "usuario" , unique = true)
-	private String usuario;
+	private String username;
 	
 	@Column(name = "password")
 	private String password;
 	
-	@OneToMany(mappedBy = "usuario")
-	private List<Pokemon> tipoPokemon;
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	private List<Pokemon> pokemones;
 	
 	public Usuario (CreateUserRequest createUserRequest) {
-		this.nombreTeam = createUserRequest.getNombreTeam();
-		this.nombreEntrenador = createUserRequest.getNombreEntrenador();
-		this.rol = createUserRequest.getRol();
-		this.usuario = createUserRequest.getUsuario();
+		this.teamName = createUserRequest.getTeamName();
+		this.traineerName = createUserRequest.getTraineerName();
+		this.role = createUserRequest.getRole();
+		this.username = createUserRequest.getUsername();
 		this.password = createUserRequest.getPassword();
 		
 		

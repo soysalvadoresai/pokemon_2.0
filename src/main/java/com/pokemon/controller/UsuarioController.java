@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,10 +15,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
-
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +32,12 @@ import com.pokemon.reponse.JWTAuthResponse;
 import com.pokemon.reponse.PokemonResponse;
 import com.pokemon.reponse.UsuarioResponse;
 import com.pokemon.request.CreateUserRequest;
+
+import com.pokemon.request.UpdateUserRequest;
+
 import com.pokemon.request.LoginDto;
 import com.pokemon.security.JwtTokenProvider;
+
 import com.pokemon.service.UsuarioService;
 
 import io.swagger.annotations.Api;
@@ -46,6 +53,11 @@ public class UsuarioController {
 	
 	@Autowired
 	UsuarioService usuarioService;
+
+	
+	// Logger for information
+	Logger log = LoggerFactory.getLogger(getClass());
+
 	@Autowired
 	private AuthenticationManager authenticationManager;
     @Autowired
@@ -53,6 +65,8 @@ public class UsuarioController {
     @Autowired
     private JwtTokenProvider tokenProvider;
 
+
+	
 	@GetMapping("pokemons/{id}")
 	@ApiOperation(value="Obtaining the pokemons team of selected User by id")
 	public List<PokemonResponse> getAllPokemonsByUser(@PathVariable long id) {
@@ -71,11 +85,38 @@ public class UsuarioController {
 	@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 
 	@PostMapping("create")
+	//Create a user 
 	@ApiOperation(value="Register the user on Data Base")
 	public UsuarioResponse createUser (@Valid @RequestBody CreateUserRequest createUserRequest) {
 		Usuario usuario = usuarioService.createUsuario(createUserRequest);
+		
+		log.info(" The user '" + usuario.getUsername() + "' has been created. ");
 		return new UsuarioResponse(usuario);
 	}
+  
+	@PatchMapping("update")
+	//Update the data for the user
+	public UsuarioResponse updateUser(@Valid @RequestBody UpdateUserRequest updateUser) {
+		return new UsuarioResponse(usuarioService.updateData(updateUser));
+	}
+	
+	
+	@GetMapping("user/{id}")
+	//Bring you the hole information about a user
+	public UsuarioResponse getUser(@PathVariable long id) {
+		return new UsuarioResponse(usuarioService.getUserbyId(id));
+	}
+	
+	
+	@DeleteMapping("deletePokemon/{id}")
+	//Delete the pokemon by the pokemon_id
+	public String deletePokemon(@PathVariable long id ) {
+		return usuarioService.deletePokemon(id) ;
+	}
+	
+	
+	
+
     @PostMapping("/signin")
     public ResponseEntity<JWTAuthResponse> authenticateUser(@RequestBody LoginDto loginDto){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
@@ -92,5 +133,6 @@ public class UsuarioController {
     public String saludo() {
     	return "hola como estas";
     }
+
 
 }
