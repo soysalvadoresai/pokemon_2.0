@@ -81,8 +81,9 @@ public class UsuarioService {
 		user.setPassword(updateUser.getPassword());
 		user = usuarioRepository.save(user);
 		
-		/// Still missing to update the pokemons
+		
 		List<Pokemon> pokemonList = new ArrayList<Pokemon>();
+		
 		
 		if(updateUser.getPokemon() != null) {
 			for (CreatePokemonRequest createPokemonRequest : 
@@ -91,6 +92,10 @@ public class UsuarioService {
 				pokemon.setName(createPokemonRequest.getNombre_pokemon());
 				pokemon.setType(createPokemonRequest.getTipo_pokemon());
 				pokemon.setUsuario(user);
+				
+				if(pokemonRepository.findByName(pokemon.getName()) != null) {
+					throw new NoUniqueNamesException("Pokemon already exist");
+				}
 				
 				pokemonList.add(pokemon);
 			}

@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,6 +19,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
+@EqualsAndHashCode
 @Table(name = "pokemon")
 public class Pokemon {
 	
@@ -35,7 +37,7 @@ public class Pokemon {
 	private String type;
 	
 	@ManyToOne
-	@JoinColumn(name = "usuario_id")
+	@JoinColumn(name = "usuario_id", unique = true)
 	private Usuario usuario;
 	
 
