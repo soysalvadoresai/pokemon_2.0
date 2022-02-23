@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BlogAPIException extends RuntimeException {
+public class APIException extends RuntimeException {
 
     private HttpStatus status;
     private String message;
