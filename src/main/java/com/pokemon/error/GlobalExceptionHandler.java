@@ -21,13 +21,11 @@ public class GlobalExceptionHandler {
 	public ResponseEntity<ErrorDetails> handleResourceNoUniqueNamesException(NoUniqueNamesException exception, 
 			WebRequest webrequest){
 
-		ErrorDetails error = new ErrorDetails(exception.getMessage(), webrequest.getDescription(false));
-	
-		error(error);
 
 		ErrorDetails error = new ErrorDetails(HttpStatus.INTERNAL_SERVER_ERROR, exception.getMessage(), webrequest.getDescription(false));
 
-		
+		error(error);
+
 		return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
@@ -43,6 +41,8 @@ public class GlobalExceptionHandler {
 		}
 		error = new ErrorDetails(HttpStatus.INTERNAL_SERVER_ERROR,message, webrequest.getDescription(false));
 		
+		error(error);
+
 		return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	

@@ -689,3 +689,30 @@ javax.persistence.NonUniqueResultException: query did not return a unique result
 2022-02-23 17:27:11.033  INFO 11456 --- [RMI TCP Connection(10)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-02-23 17:27:11.036  INFO 11456 --- [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-02-23 17:27:11.558  INFO 11456 --- [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-02-23 16:57:50.266  INFO 18400 --- [main] com.pokemon.Application                  : Starting Application using Java 17.0.1 on e-grodelo with PID 18400 (C:\Users\e-grodelo\Documents\Angular-Java\pokemon_2.0\build\classes\java\main started by e-grodelo in C:\Users\e-grodelo\Documents\Angular-Java\pokemon_2.0)
+2022-02-23 16:57:50.269  INFO 18400 --- [main] com.pokemon.Application                  : No active profile set, falling back to default profiles: default
+2022-02-23 16:57:50.857  INFO 18400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-23 16:57:50.903  INFO 18400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 2 JPA repository interfaces.
+2022-02-23 16:57:51.665  INFO 18400 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-02-23 16:57:51.677  INFO 18400 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-23 16:57:51.677  INFO 18400 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-23 16:57:51.772  INFO 18400 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-23 16:57:51.773  INFO 18400 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1454 ms
+2022-02-23 16:57:51.882  WARN 18400 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-23 16:57:51.956  INFO 18400 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-23 16:57:51.998  INFO 18400 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-02-23 16:57:52.142  INFO 18400 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-23 16:57:52.225  INFO 18400 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-02-23 16:57:53.086  INFO 18400 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-02-23 16:57:53.099  INFO 18400 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-02-23 16:57:54.320  INFO 18400 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-23 16:57:54.328  INFO 18400 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-23 16:57:55.088 DEBUG 18400 --- [main] edFilterInvocationSecurityMetadataSource : Adding web access control expression [permitAll] for Ant [pattern='/**']
+2022-02-23 16:57:55.088 DEBUG 18400 --- [main] edFilterInvocationSecurityMetadataSource : Adding web access control expression [authenticated] for any request
+2022-02-23 16:57:55.096  INFO 18400 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f26fc4d, org.springframework.security.web.context.SecurityContextPersistenceFilter@70ebaa1e, org.springframework.security.web.header.HeaderWriterFilter@299cddbf, org.springframework.security.web.authentication.logout.LogoutFilter@10c67c1c, com.pokemon.security.JwtAuthenticationFilter@28941a68, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@615b1baf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@38d9c9c4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e8eea59, org.springframework.security.web.session.SessionManagementFilter@1e084a26, org.springframework.security.web.access.ExceptionTranslationFilter@5f5fb335, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@58e0d1ac]
+2022-02-23 16:57:55.119  INFO 18400 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-02-23 16:57:55.744  INFO 18400 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-02-23 16:57:55.745  INFO 18400 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-02-23 16:57:55.762  INFO 18400 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-02-23 16:57:55.784  INFO 18400 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-02-23 16:57:55.913  INFO 18400 --- [main] com.pokemon.Application                  : Started Application in 6.0 seconds (JVM running for 6.36)

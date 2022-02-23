@@ -79,13 +79,15 @@ public class UsuarioService {
 	
 	public Usuario updateData(UpdateUserRequest updateUser) {
 		
-		Usuario user = usuarioRepository.findByUsername(updateUser.getUsername());
+		Usuario user = usuarioRepository.findByUsername(updateUser.getUsername()).orElse(null);
+		
+		if(user != null) {
 		user.setTraineerName(updateUser.getTraineerName());
 		user.setTeamName(updateUser.getTeamName());
 		user.setRole(updateUser.getRole());
 		user.setPassword(updateUser.getPassword());
 		user = usuarioRepository.save(user);
-		
+		}
 		
 		List<Pokemon> pokemonList = new ArrayList<Pokemon>();
 		

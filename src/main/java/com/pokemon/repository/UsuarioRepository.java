@@ -11,10 +11,12 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
 	Usuario findByTeamNameOrTraineerNameOrUsername(String nombreTeam, String nombreEntrenador, String usuario);
 	
-	Usuario findByUsername(String username);
+	Optional<Usuario> findByUsername(String username);
+	
 
-    Optional<Usuario> findByUsuario(String usuario);
-    Boolean existsByUsuario(String usuario);
-	Usuario findByNombreTeamOrNombreEntrenadorOrUsuario(String nombreTeam, String nombreEntrenador, String usuario);
+    Boolean existsByUsername(String usuario);
+	
+    
+    //Usuario findByNombreTeamOrNombreEntrenadorOrUsuario(String nombreTeam, String nombreEntrenador, String usuario);
 
 }
