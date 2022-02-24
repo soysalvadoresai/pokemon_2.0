@@ -38,6 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Bean
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
+	    
     }
 
     @Override
@@ -53,8 +54,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .authorizeRequests()
                 .antMatchers("/**").permitAll()
                 .anyRequest()
-                .authenticated();
+                .authenticated()
+		.and()
+		.cors();
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+	    
     }
 
     @Override
