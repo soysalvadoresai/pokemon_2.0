@@ -6865,3 +6865,42 @@ Caused by: org.postgresql.util.PSQLException: FATAL: too many connections for ro
 2022-02-24 14:17:12.351 DEBUG 14584 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/springfox.js?v=3.0.0
 2022-02-24 14:17:12.351 DEBUG 14584 --- [http-nio-8080-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /swagger-ui/swagger-ui.css?v=3.0.0] with attributes [permitAll]
 2022-02-24 14:17:12.351 DEBUG 14584 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-ui.css?v=3.0.0
+2022-02-24 14:17:12.354 DEBUG 14584 --- [http-nio-8080-exec-3] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-02-24 14:17:12.359 DEBUG 14584 --- [http-nio-8080-exec-5] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-02-24 14:17:12.364 DEBUG 14584 --- [http-nio-8080-exec-8] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-02-24 14:17:12.366 DEBUG 14584 --- [http-nio-8080-exec-4] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-02-24 14:17:12.374 DEBUG 14584 --- [http-nio-8080-exec-6] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-02-24 14:17:12.459 DEBUG 14584 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /swagger-resources/configuration/ui
+2022-02-24 14:17:12.460 DEBUG 14584 --- [http-nio-8080-exec-7] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-02-24 14:17:12.460 DEBUG 14584 --- [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2022-02-24 14:17:12.460 DEBUG 14584 --- [http-nio-8080-exec-7] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /swagger-resources/configuration/ui] with attributes [permitAll]
+2022-02-24 14:17:12.461 DEBUG 14584 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /swagger-resources/configuration/ui
+2022-02-24 14:17:12.462 DEBUG 14584 --- [http-nio-8080-exec-7] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-02-24 14:17:12.478 DEBUG 14584 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/favicon-32x32.png?v=3.0.0
+2022-02-24 14:17:12.478 DEBUG 14584 --- [http-nio-8080-exec-9] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-02-24 14:17:12.478 DEBUG 14584 --- [http-nio-8080-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2022-02-24 14:17:12.478 DEBUG 14584 --- [http-nio-8080-exec-9] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /swagger-ui/favicon-32x32.png?v=3.0.0] with attributes [permitAll]
+2022-02-24 14:17:12.478 DEBUG 14584 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/favicon-32x32.png?v=3.0.0
+2022-02-24 14:17:12.482 DEBUG 14584 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /swagger-resources/configuration/security
+2022-02-24 14:17:12.482 DEBUG 14584 --- [http-nio-8080-exec-10] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-02-24 14:17:12.483 DEBUG 14584 --- [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2022-02-24 14:17:12.483 DEBUG 14584 --- [http-nio-8080-exec-9] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-02-24 14:17:12.483 DEBUG 14584 --- [http-nio-8080-exec-10] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /swagger-resources/configuration/security] with attributes [permitAll]
+2022-02-24 14:17:12.483 DEBUG 14584 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /swagger-resources/configuration/security
+2022-02-24 14:17:12.488 DEBUG 14584 --- [http-nio-8080-exec-10] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-02-24 14:17:12.493 DEBUG 14584 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /swagger-resources
+2022-02-24 14:17:12.493 DEBUG 14584 --- [http-nio-8080-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-02-24 14:17:12.493 DEBUG 14584 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2022-02-24 14:17:12.493 DEBUG 14584 --- [http-nio-8080-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /swagger-resources] with attributes [permitAll]
+2022-02-24 14:17:12.493 DEBUG 14584 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /swagger-resources
+2022-02-24 14:17:12.495 DEBUG 14584 --- [http-nio-8080-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-02-24 14:17:12.519 DEBUG 14584 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /v2/api-docs
+2022-02-24 14:17:12.519 DEBUG 14584 --- [http-nio-8080-exec-2] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-02-24 14:17:12.519 DEBUG 14584 --- [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2022-02-24 14:17:12.520 DEBUG 14584 --- [http-nio-8080-exec-2] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /v2/api-docs] with attributes [permitAll]
+2022-02-24 14:17:12.521 DEBUG 14584 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /v2/api-docs
+2022-02-24 14:17:12.543 DEBUG 14584 --- [http-nio-8080-exec-2] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-02-24 14:20:48.284  INFO 14584 --- [RMI TCP Connection(6)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-02-24 14:20:48.313  INFO 14584 --- [RMI TCP Connection(6)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-24 14:20:48.314  INFO 14584 --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-02-24 14:20:49.120  INFO 14584 --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
