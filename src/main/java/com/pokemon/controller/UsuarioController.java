@@ -48,7 +48,8 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/pokemon/")
 @Api(value="API REST Pokemons")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", 
+	methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE, RequestMethod.PATCH})
 public class UsuarioController {
 	
 	@Autowired

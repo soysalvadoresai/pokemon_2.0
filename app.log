@@ -8226,3 +8226,48 @@ javax.persistence.NonUniqueResultException: query did not return a unique result
 2022-02-23 20:27:53.386  INFO 9920 --- [RMI TCP Connection(5)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-02-23 20:27:53.388  INFO 9920 --- [RMI TCP Connection(5)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-02-23 20:27:53.900  INFO 9920 --- [RMI TCP Connection(5)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-02-23 20:35:38.383  INFO 9532 --- [main] com.pokemon.Application                  : Starting Application using Java 17.0.1 on e-grodelo with PID 9532 (C:\Users\e-grodelo\Documents\Angular-Java\pokemon_2.0\bin\main started by e-grodelo in C:\Users\e-grodelo\Documents\Angular-Java\pokemon_2.0)
+2022-02-23 20:35:38.385  INFO 9532 --- [main] com.pokemon.Application                  : No active profile set, falling back to default profiles: default
+2022-02-23 20:35:39.061  INFO 9532 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-23 20:35:39.101  INFO 9532 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 2 JPA repository interfaces.
+2022-02-23 20:35:39.803  INFO 9532 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-02-23 20:35:39.810  INFO 9532 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-23 20:35:39.811  INFO 9532 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-23 20:35:39.907  INFO 9532 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-23 20:35:39.907  INFO 9532 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1477 ms
+2022-02-23 20:35:40.039  WARN 9532 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-23 20:35:40.107  INFO 9532 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-23 20:35:40.143  INFO 9532 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-02-23 20:35:40.258  INFO 9532 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-23 20:35:40.338  INFO 9532 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-02-23 20:35:41.256  INFO 9532 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-02-23 20:35:41.270  INFO 9532 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-02-23 20:35:42.351  INFO 9532 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-23 20:35:42.368  INFO 9532 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-23 20:35:42.727 DEBUG 9532 --- [main] .PrePostAnnotationSecurityMetadataSource : @org.springframework.security.access.prepost.PreAuthorize("hasAnyRole(\'Administrador\',\'Provisional\')") found on specific method: public java.lang.String com.pokemon.controller.UsuarioController.deletePokemon(long)
+2022-02-23 20:35:42.741 DEBUG 9532 --- [main] m.DelegatingMethodSecurityMetadataSource : Caching method [CacheKey[com.pokemon.controller.UsuarioController; public java.lang.String com.pokemon.controller.UsuarioController.deletePokemon(long)]] with attributes [[authorize: 'hasAnyRole('Administrador','Provisional')', filter: 'null', filterTarget: 'null']]
+2022-02-23 20:35:42.759 DEBUG 9532 --- [main] .PrePostAnnotationSecurityMetadataSource : @org.springframework.security.access.prepost.PreAuthorize("hasAnyRole(\'Administrador\',\'Provisional\')") found on specific method: public com.pokemon.reponse.UsuarioResponse com.pokemon.controller.UsuarioController.updateUser(com.pokemon.request.UpdateUserRequest)
+2022-02-23 20:35:42.759 DEBUG 9532 --- [main] m.DelegatingMethodSecurityMetadataSource : Caching method [CacheKey[com.pokemon.controller.UsuarioController; public com.pokemon.reponse.UsuarioResponse com.pokemon.controller.UsuarioController.updateUser(com.pokemon.request.UpdateUserRequest)]] with attributes [[authorize: 'hasAnyRole('Administrador','Provisional')', filter: 'null', filterTarget: 'null']]
+2022-02-23 20:35:43.073 DEBUG 9532 --- [main] edFilterInvocationSecurityMetadataSource : Adding web access control expression [permitAll] for Ant [pattern='/**']
+2022-02-23 20:35:43.073 DEBUG 9532 --- [main] edFilterInvocationSecurityMetadataSource : Adding web access control expression [authenticated] for any request
+2022-02-23 20:35:43.076  INFO 9532 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3c83e9ca, org.springframework.security.web.context.SecurityContextPersistenceFilter@2b826482, org.springframework.security.web.header.HeaderWriterFilter@77331437, org.springframework.security.web.authentication.logout.LogoutFilter@74471600, com.pokemon.security.JwtAuthenticationFilter@5a464be7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@153c69bc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@8929865, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c0ecdbf, org.springframework.security.web.session.SessionManagementFilter@321302bc, org.springframework.security.web.access.ExceptionTranslationFilter@531bfe4b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7c045627]
+2022-02-23 20:35:43.094  INFO 9532 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-02-23 20:35:43.981  INFO 9532 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-02-23 20:35:43.982  INFO 9532 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-02-23 20:35:44.002  INFO 9532 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-02-23 20:35:44.032  INFO 9532 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-02-23 20:35:44.169  INFO 9532 --- [main] com.pokemon.Application                  : Started Application in 6.053 seconds (JVM running for 6.609)
+2022-02-23 20:35:48.142  INFO 9532 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-23 20:35:48.143  INFO 9532 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-02-23 20:35:48.144  INFO 9532 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-02-23 20:35:48.154 DEBUG 9532 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /pokemon/create
+2022-02-23 20:35:48.157 DEBUG 9532 --- [http-nio-8080-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-02-23 20:35:48.160 DEBUG 9532 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2022-02-23 20:35:48.164 DEBUG 9532 --- [http-nio-8080-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [POST /pokemon/create] with attributes [permitAll]
+2022-02-23 20:35:48.164 DEBUG 9532 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /pokemon/create
+2022-02-23 20:35:49.071  INFO 9532 --- [http-nio-8080-exec-1] c.pokemon.controller.UsuarioController   :  The user 'Ash@pokemon.com' has been created. 
+2022-02-23 20:35:49.100 DEBUG 9532 --- [http-nio-8080-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-02-23 20:35:58.254  INFO 9532 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-02-23 20:35:58.279  INFO 9532 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-23 20:35:58.279  INFO 9532 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-02-23 20:35:58.846  INFO 9532 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
