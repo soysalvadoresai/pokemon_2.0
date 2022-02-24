@@ -48,7 +48,7 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/pokemon/")
 @Api(value="API REST Pokemons")
 
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, 
+@CrossOrigin(origins = "*", maxAge = 3600, 
 	methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE, RequestMethod.PATCH, RequestMethod.DELETE})
 
 public class UsuarioController {
@@ -66,8 +66,6 @@ public class UsuarioController {
     @Autowired
     private JwtTokenProvider tokenProvider;
 
-
-
 	@GetMapping("pokemons/{id}")
 	@ApiOperation(value="Obtaining the pokemons team of selected User by id")
 	public List<PokemonResponse> getAllPokemonsByUser(@PathVariable long id) {
@@ -81,14 +79,6 @@ public class UsuarioController {
 		
 		return pokemonResponseList;
 	}
-	
-
-
-	
-
-	@CrossOrigin(origins = "*", maxAge = 3600, methods= {RequestMethod.GET,RequestMethod.POST})
-
-
 
 	@PostMapping("create")
 	//Create a user 
