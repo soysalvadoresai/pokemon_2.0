@@ -48,7 +48,7 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/pokemon/")
 @Api(value="API REST Pokemons")
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, 
+@CrossOrigin(origins = "*", maxAge = 3600, 
 	methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE, RequestMethod.PATCH})
 public class UsuarioController {
 	
@@ -66,7 +66,7 @@ public class UsuarioController {
     private JwtTokenProvider tokenProvider;
 
 
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, methods= {RequestMethod.GET,RequestMethod.POST})
+	@CrossOrigin(origins = "*", maxAge = 3600, methods= {RequestMethod.GET,RequestMethod.POST})
 	@GetMapping("pokemons/{id}")
 	@ApiOperation(value="Obtaining the pokemons team of selected User by id")
 	public List<PokemonResponse> getAllPokemonsByUser(@PathVariable long id) {
@@ -82,7 +82,7 @@ public class UsuarioController {
 	}
 	
 
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, methods= {RequestMethod.GET,RequestMethod.POST})
+	@CrossOrigin(origins = "*", maxAge = 3600, methods= {RequestMethod.GET,RequestMethod.POST})
 	@PostMapping("create")
 	//Create a user 
 	@ApiOperation(value="Register the user on Data Base")
@@ -94,28 +94,28 @@ public class UsuarioController {
 	}
   
 	//@PreAuthorize("hasAnyRole('Administrador','Provisional')")
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, methods= {RequestMethod.DELETE,RequestMethod.PATCH})
+	@CrossOrigin(origins = "*", maxAge = 3600, methods= {RequestMethod.DELETE,RequestMethod.PATCH})
 	@PatchMapping("update")
 	//Update the data for the user
 	public UsuarioResponse updateUser(@Valid @RequestBody UpdateUserRequest updateUser) {
 		return new UsuarioResponse(usuarioService.updateData(updateUser));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, methods= {RequestMethod.GET,RequestMethod.POST})
+	@CrossOrigin(origins = "*", maxAge = 3600, methods= {RequestMethod.GET,RequestMethod.POST})
 	@GetMapping("user/{id}")
 	//Bring you the hole information about a user
 	public UsuarioResponse getUser(@PathVariable long id) {
 		return new UsuarioResponse(usuarioService.getUserbyId(id));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, methods= {RequestMethod.DELETE,RequestMethod.PATCH})
+	@CrossOrigin(origins = "*", maxAge = 3600, methods= {RequestMethod.DELETE,RequestMethod.PATCH})
 	@DeleteMapping("deletePokemon/{id}")
 	//Delete the pokemon by the pokemon_id
 	public String deletePokemon(@PathVariable long id ) {
 		return usuarioService.deletePokemon(id) ;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, methods= {RequestMethod.GET,RequestMethod.POST})
+	@CrossOrigin(origins = "*", maxAge = 3600, methods= {RequestMethod.GET,RequestMethod.POST})
     @PostMapping("/signin")
     public ResponseEntity<JWTAuthResponse> authenticateUser(@RequestBody LoginDto loginDto){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
