@@ -13,7 +13,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -61,8 +60,6 @@ public class UsuarioController {
 	@Autowired
 	private AuthenticationManager authenticationManager;
     @Autowired
-    private PasswordEncoder passwordEncoder;
-    @Autowired
     private JwtTokenProvider tokenProvider;
 
 
@@ -83,7 +80,6 @@ public class UsuarioController {
 	
 
 	@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
-
 	@PostMapping("create")
 	//Create a user 
 	@ApiOperation(value="Register the user on Data Base")
@@ -114,6 +110,7 @@ public class UsuarioController {
 		return usuarioService.deletePokemon(id) ;
 	}
 	
+	@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
     @PostMapping("/signin")
     public ResponseEntity<JWTAuthResponse> authenticateUser(@RequestBody LoginDto loginDto){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
@@ -125,10 +122,6 @@ public class UsuarioController {
         String token = tokenProvider.generateToken(authentication);
 
         return ResponseEntity.ok(new JWTAuthResponse(token));
-    }
-    @GetMapping("/saludo")
-    public String saludo() {
-    	return "hola como estas";
     }
 
 
