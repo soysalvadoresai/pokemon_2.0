@@ -115,6 +115,7 @@ public class UsuarioController {
 		return usuarioService.deletePokemon(id) ;
 	}
 	
+	@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
     @PostMapping("/signin")
     public ResponseEntity<JWTAuthResponse> authenticateUser(@RequestBody LoginDto loginDto){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
