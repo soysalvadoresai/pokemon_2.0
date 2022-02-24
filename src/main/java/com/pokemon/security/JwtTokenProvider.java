@@ -1,12 +1,17 @@
 package com.pokemon.security;
 
 import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
+import com.pokemon.entity.Usuario;
 import com.pokemon.error.APIException;
+import com.pokemon.repository.UsuarioRepository;
+import com.pokemon.service.UsuarioService;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -18,6 +23,9 @@ import io.jsonwebtoken.UnsupportedJwtException;
 
 @Component
 public class JwtTokenProvider {
+	@Autowired
+	UsuarioService usuarioService;
+	
     @Value("${app.jwt-secret}")
     private String jwtSecret;
     @Value("${app.jwt-expiration-milliseconds}")
@@ -26,10 +34,15 @@ public class JwtTokenProvider {
     // generate token
     public String generateToken(Authentication authentication){
         String username = authentication.getName();
+        
         Date currentDate = new Date();
         Date expireDate = new Date(currentDate.getTime() + jwtExpirationInMs);
 
+        
+        Usuario user = usuarioService.getByUsername(username);
+        String traineername = user.getTraineerName();
         String token = Jwts.builder()
+        		.setAudience(traineername)
                 .setSubject(username)
                 .setIssuedAt(new Date())
                 .setExpiration(expireDate)

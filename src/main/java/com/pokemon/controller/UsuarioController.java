@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -47,7 +48,8 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/pokemon/")
 @Api(value="API REST Pokemons")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", 
+	methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE, RequestMethod.PATCH})
 public class UsuarioController {
 	
 	@Autowired
@@ -59,6 +61,7 @@ public class UsuarioController {
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
+
     @Autowired
     private JwtTokenProvider tokenProvider;
 
@@ -90,6 +93,7 @@ public class UsuarioController {
 		return new UsuarioResponse(usuario);
 	}
   
+	//@PreAuthorize("hasAnyRole('Administrador','Provisional')")
 	@PatchMapping("update")
 	//Update the data for the user
 	public UsuarioResponse updateUser(@Valid @RequestBody UpdateUserRequest updateUser) {
@@ -103,7 +107,7 @@ public class UsuarioController {
 		return new UsuarioResponse(usuarioService.getUserbyId(id));
 	}
 	
-	
+
 	@DeleteMapping("deletePokemon/{id}")
 	//Delete the pokemon by the pokemon_id
 	public String deletePokemon(@PathVariable long id ) {

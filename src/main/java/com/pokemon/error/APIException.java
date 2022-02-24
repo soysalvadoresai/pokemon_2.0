@@ -13,6 +13,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class APIException extends RuntimeException {
 
-    private HttpStatus status;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private HttpStatus status;
     private String message;
 }

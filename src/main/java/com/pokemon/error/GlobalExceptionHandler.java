@@ -8,6 +8,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.security.core.AuthenticationException;
 
 import com.pokemon.controller.UsuarioController;
 
@@ -56,8 +57,19 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
+	@ExceptionHandler(AuthenticationException.class)
+	public ResponseEntity<ErrorDetails> handleResourceAuthenticationException(AuthenticationException exception, 
+			WebRequest webrequest){
+		ErrorDetails error = new ErrorDetails(HttpStatus.BAD_REQUEST, " Wrong credentials." , webrequest.getDescription(false));
+		
+		error(error);
+		return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
 	private void error(ErrorDetails error) {
 		log.error(" A error has ocurred: " + error.getMessage() + " on " + error.getDetails());
 	}
+	
+	
 
 }

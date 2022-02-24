@@ -1,5 +1,7 @@
 package com.pokemon.entity;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,12 +20,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@EqualsAndHashCode
 @Table(name = "pokemon")
 public class Pokemon {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "id")
 	private Long id;
 	
@@ -37,8 +37,25 @@ public class Pokemon {
 	private String type;
 	
 	@ManyToOne
-	@JoinColumn(name = "usuario_id", unique = true)
+	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, usuario);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pokemon other = (Pokemon) obj;
+		return Objects.equals(name, other.name) && Objects.equals(usuario, other.usuario);
+	}
 	
 
 }
