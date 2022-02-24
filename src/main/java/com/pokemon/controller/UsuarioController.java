@@ -49,7 +49,7 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/pokemon/")
 @Api(value="API REST Pokemons")
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, 
-	methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE, RequestMethod.PATCH})
+	methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE, RequestMethod.PATCH, RequestMethod.DELETE})
 public class UsuarioController {
 	
 	@Autowired
@@ -66,7 +66,6 @@ public class UsuarioController {
     private JwtTokenProvider tokenProvider;
 
 
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, methods= {RequestMethod.GET,RequestMethod.POST})
 	@GetMapping("pokemons/{id}")
 	@ApiOperation(value="Obtaining the pokemons team of selected User by id")
 	public List<PokemonResponse> getAllPokemonsByUser(@PathVariable long id) {
@@ -82,7 +81,6 @@ public class UsuarioController {
 	}
 	
 
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, methods= {RequestMethod.GET,RequestMethod.POST})
 	@PostMapping("create")
 	//Create a user 
 	@ApiOperation(value="Register the user on Data Base")
@@ -101,7 +99,6 @@ public class UsuarioController {
 		return new UsuarioResponse(usuarioService.updateData(updateUser));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, methods= {RequestMethod.GET,RequestMethod.POST})
 	@GetMapping("user/{id}")
 	//Bring you the hole information about a user
 	public UsuarioResponse getUser(@PathVariable long id) {
@@ -114,8 +111,7 @@ public class UsuarioController {
 	public String deletePokemon(@PathVariable long id ) {
 		return usuarioService.deletePokemon(id) ;
 	}
-	
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, methods= {RequestMethod.GET,RequestMethod.POST})
+
     @PostMapping("/signin")
     public ResponseEntity<JWTAuthResponse> authenticateUser(@RequestBody LoginDto loginDto){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
