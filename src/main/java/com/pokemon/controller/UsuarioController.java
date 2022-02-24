@@ -94,7 +94,7 @@ public class UsuarioController {
 		return new UsuarioResponse(usuario);
 	}
   
-	@PreAuthorize("hasAnyRole('Administrador','Provisional')")
+	//@PreAuthorize("hasAnyRole('Administrador','Provisional')")
 	@PatchMapping("update")
 	//Update the data for the user
 	public UsuarioResponse updateUser(@Valid @RequestBody UpdateUserRequest updateUser) {
@@ -108,7 +108,7 @@ public class UsuarioController {
 		return new UsuarioResponse(usuarioService.getUserbyId(id));
 	}
 	
-	@PreAuthorize("hasAnyRole('Administrador','Provisional')")
+
 	@DeleteMapping("deletePokemon/{id}")
 	//Delete the pokemon by the pokemon_id
 	public String deletePokemon(@PathVariable long id ) {
