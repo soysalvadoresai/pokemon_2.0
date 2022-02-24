@@ -91,7 +91,7 @@ public class UsuarioService {
 				pokemon.setType(createPokemonRequest.getTipo_pokemon());
 				pokemon.setUsuario(user);
 
-				if (pokemonRepository.findByName(pokemon.getName()) != null) {
+				if (user.getPokemones().contains(pokemon)) {
 					throw new NoUniqueNamesException("Pokemon already exist");
 				}
 

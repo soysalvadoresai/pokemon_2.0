@@ -9,11 +9,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,7 +37,6 @@ import com.pokemon.request.UpdateUserRequest;
 
 import com.pokemon.request.LoginDto;
 import com.pokemon.security.JwtTokenProvider;
-import com.pokemon.entity.*;
 
 import com.pokemon.service.UsuarioService;
 
@@ -61,8 +60,7 @@ public class UsuarioController {
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+   
     @Autowired
     private JwtTokenProvider tokenProvider;
 
@@ -95,6 +93,7 @@ public class UsuarioController {
 		return new UsuarioResponse(usuario);
 	}
   
+	@PreAuthorize("hasAnyRole('Administrador','Provisional')")
 	@PatchMapping("update")
 	//Update the data for the user
 	public UsuarioResponse updateUser(@Valid @RequestBody UpdateUserRequest updateUser) {
@@ -108,7 +107,7 @@ public class UsuarioController {
 		return new UsuarioResponse(usuarioService.getUserbyId(id));
 	}
 	
-	
+	@PreAuthorize("hasAnyRole('Administrador','Provisional')")
 	@DeleteMapping("deletePokemon/{id}")
 	//Delete the pokemon by the pokemon_id
 	public String deletePokemon(@PathVariable long id ) {

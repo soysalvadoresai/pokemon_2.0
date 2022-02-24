@@ -8163,3 +8163,66 @@ javax.persistence.NonUniqueResultException: query did not return a unique result
 2022-02-23 20:21:34.467 DEBUG 21024 --- [http-nio-8080-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /pokemon/user/41] with attributes [permitAll]
 2022-02-23 20:21:34.467 DEBUG 21024 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /pokemon/user/41
 2022-02-23 20:21:34.717 DEBUG 21024 --- [http-nio-8080-exec-4] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-02-23 20:25:49.393  INFO 21024 --- [RMI TCP Connection(10)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-02-23 20:25:49.417  INFO 21024 --- [RMI TCP Connection(10)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-23 20:25:49.418  INFO 21024 --- [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-02-23 20:25:52.553  INFO 9920 --- [main] com.pokemon.Application                  : Starting Application using Java 17.0.1 on e-grodelo with PID 9920 (C:\Users\e-grodelo\Documents\Angular-Java\pokemon_2.0\bin\main started by e-grodelo in C:\Users\e-grodelo\Documents\Angular-Java\pokemon_2.0)
+2022-02-23 20:25:52.555  INFO 9920 --- [main] com.pokemon.Application                  : No active profile set, falling back to default profiles: default
+2022-02-23 20:25:53.155  INFO 9920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-23 20:25:53.197  INFO 9920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 2 JPA repository interfaces.
+2022-02-23 20:25:53.928  INFO 9920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-02-23 20:25:53.940  INFO 9920 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-23 20:25:53.940  INFO 9920 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-23 20:25:54.066  INFO 9920 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-23 20:25:54.066  INFO 9920 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1461 ms
+2022-02-23 20:25:54.227  WARN 9920 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-23 20:25:54.351  INFO 9920 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-23 20:25:54.402  INFO 9920 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-02-23 20:25:54.560  INFO 9920 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-23 20:25:54.660  INFO 9920 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-02-23 20:25:55.565  INFO 9920 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-02-23 20:25:55.588  INFO 9920 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-02-23 20:25:56.876  INFO 9920 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-23 20:25:56.884  INFO 9920 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-23 20:25:57.837 DEBUG 9920 --- [main] edFilterInvocationSecurityMetadataSource : Adding web access control expression [permitAll] for Ant [pattern='/**']
+2022-02-23 20:25:57.838 DEBUG 9920 --- [main] edFilterInvocationSecurityMetadataSource : Adding web access control expression [authenticated] for any request
+2022-02-23 20:25:57.844  INFO 9920 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@53b579d2, org.springframework.security.web.context.SecurityContextPersistenceFilter@31c800a5, org.springframework.security.web.header.HeaderWriterFilter@64ff0eaa, org.springframework.security.web.authentication.logout.LogoutFilter@3618486e, com.pokemon.security.JwtAuthenticationFilter@7833407, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@648bfebe, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5de32e00, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@34f2d3a6, org.springframework.security.web.session.SessionManagementFilter@24ea71d, org.springframework.security.web.access.ExceptionTranslationFilter@3b8c15de, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1ae2028d]
+2022-02-23 20:25:57.872  INFO 9920 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-02-23 20:25:58.613  INFO 9920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-02-23 20:25:58.614  INFO 9920 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-02-23 20:25:58.630  INFO 9920 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-02-23 20:25:58.649  INFO 9920 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-02-23 20:25:58.817  INFO 9920 --- [main] com.pokemon.Application                  : Started Application in 6.587 seconds (JVM running for 7.228)
+2022-02-23 20:25:59.420  INFO 21024 --- [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-02-23 20:26:09.109  INFO 9920 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-23 20:26:09.110  INFO 9920 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-02-23 20:26:09.113  INFO 9920 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-02-23 20:26:09.124 DEBUG 9920 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing PATCH /pokemon/update
+2022-02-23 20:26:09.127 DEBUG 9920 --- [http-nio-8080-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-02-23 20:26:09.129 DEBUG 9920 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2022-02-23 20:26:09.132 DEBUG 9920 --- [http-nio-8080-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [PATCH /pokemon/update] with attributes [permitAll]
+2022-02-23 20:26:09.132 DEBUG 9920 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured PATCH /pokemon/update
+2022-02-23 20:26:09.862 ERROR 9920 --- [http-nio-8080-exec-1] c.pokemon.controller.UsuarioController   :  A error has ocurred: Pokemon already exist on uri=/pokemon/update
+2022-02-23 20:26:09.891 DEBUG 9920 --- [http-nio-8080-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-02-23 20:26:15.299 DEBUG 9920 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing PATCH /pokemon/update
+2022-02-23 20:26:15.300 DEBUG 9920 --- [http-nio-8080-exec-4] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-02-23 20:26:15.301 DEBUG 9920 --- [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2022-02-23 20:26:15.303 DEBUG 9920 --- [http-nio-8080-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [PATCH /pokemon/update] with attributes [permitAll]
+2022-02-23 20:26:15.303 DEBUG 9920 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured PATCH /pokemon/update
+2022-02-23 20:26:15.930 DEBUG 9920 --- [http-nio-8080-exec-4] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-02-23 20:26:49.997 DEBUG 9920 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing PATCH /pokemon/update
+2022-02-23 20:26:49.998 DEBUG 9920 --- [http-nio-8080-exec-5] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-02-23 20:26:49.999 DEBUG 9920 --- [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2022-02-23 20:26:49.999 DEBUG 9920 --- [http-nio-8080-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [PATCH /pokemon/update] with attributes [permitAll]
+2022-02-23 20:26:49.999 DEBUG 9920 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured PATCH /pokemon/update
+2022-02-23 20:26:50.576 DEBUG 9920 --- [http-nio-8080-exec-5] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-02-23 20:26:55.698 DEBUG 9920 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /pokemon/user/41
+2022-02-23 20:26:55.698 DEBUG 9920 --- [http-nio-8080-exec-6] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+2022-02-23 20:26:55.698 DEBUG 9920 --- [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2022-02-23 20:26:55.699 DEBUG 9920 --- [http-nio-8080-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /pokemon/user/41] with attributes [permitAll]
+2022-02-23 20:26:55.699 DEBUG 9920 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /pokemon/user/41
+2022-02-23 20:26:55.922 DEBUG 9920 --- [http-nio-8080-exec-6] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2022-02-23 20:27:53.351  INFO 9920 --- [RMI TCP Connection(5)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-02-23 20:27:53.386  INFO 9920 --- [RMI TCP Connection(5)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-23 20:27:53.388  INFO 9920 --- [RMI TCP Connection(5)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-02-23 20:27:53.900  INFO 9920 --- [RMI TCP Connection(5)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
