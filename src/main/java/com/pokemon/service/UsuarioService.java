@@ -110,5 +110,9 @@ public class UsuarioService {
 	public Usuario getUserbyId(long id) {
 		return usuarioRepository.getById(id);
 	}
+	
+	public Usuario getByUsername(String username) {
+		return usuarioRepository.findByUsername(username).get();
+	}
 
 }
