@@ -94,7 +94,7 @@ public class UsuarioController {
 	}
   
 	//@PreAuthorize("hasAnyRole('Administrador','Provisional')")
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, methods= {RequestMethod.GET,RequestMethod.POST})
+	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	@PatchMapping("update")
 	//Update the data for the user
 	public UsuarioResponse updateUser(@Valid @RequestBody UpdateUserRequest updateUser) {
@@ -108,7 +108,7 @@ public class UsuarioController {
 		return new UsuarioResponse(usuarioService.getUserbyId(id));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, methods= {RequestMethod.GET,RequestMethod.POST})
+	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	@DeleteMapping("deletePokemon/{id}")
 	//Delete the pokemon by the pokemon_id
 	public String deletePokemon(@PathVariable long id ) {
