@@ -129,10 +129,6 @@ public class UsuarioController {
 
         return ResponseEntity.ok(new JWTAuthResponse(token));
     }
-    @GetMapping("/saludo")
-    public String saludo() {
-    	return "hola como estas";
-    }
 
 
 }

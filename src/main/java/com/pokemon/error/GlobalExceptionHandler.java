@@ -20,14 +20,11 @@ public class GlobalExceptionHandler {
 	
 	@ExceptionHandler(NoUniqueNamesException.class)
 	public ResponseEntity<ErrorDetails> handleResourceNoUniqueNamesException(NoUniqueNamesException exception, 
-			WebRequest webrequest){
-
-		ErrorDetails error = new ErrorDetails(exception.getMessage(), webrequest.getDescription(false));
-	
-		error(error);
+			WebRequest webrequest){	
+		
 
 		ErrorDetails error = new ErrorDetails(HttpStatus.INTERNAL_SERVER_ERROR, exception.getMessage(), webrequest.getDescription(false));
-
+		error(error);
 		
 		return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
@@ -35,7 +32,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(IncorrectResultSizeDataAccessException.class)
 	public ResponseEntity<ErrorDetails> handleIncorrectResultSizeDataAccessException(IncorrectResultSizeDataAccessException exception, 
 			WebRequest webrequest){
-		ErrorDetails error = new ErrorDetails("Pokemon already exist", webrequest.getDescription(false));
+		ErrorDetails error = new ErrorDetails(HttpStatus.INTERNAL_SERVER_ERROR,"Pokemon already exist", webrequest.getDescription(false));
 	
 		error(error);
 		
