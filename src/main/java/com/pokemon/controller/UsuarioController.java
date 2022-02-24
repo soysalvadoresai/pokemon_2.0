@@ -95,7 +95,7 @@ public class UsuarioController {
 		return new UsuarioResponse(usuario);
 	}
   
-	@PreAuthorize("hasAnyRole('Administrador','Provisional')")
+	//@PreAuthorize("hasAnyRole('Administrador','Provisional')")
 	@PatchMapping("update")
 	@ApiOperation("Update Data General user & add new Pokemons to the team! ")
 	//Update the data for the user
@@ -109,8 +109,10 @@ public class UsuarioController {
 	public UsuarioResponse getUser(@PathVariable long id) {
 		return new UsuarioResponse(usuarioService.getUserbyId(id));
 	}
+
 	@ApiOperation("Delete pokemon by id")
-	@PreAuthorize("hasAnyRole('Administrador','Provisional')")
+	//@PreAuthorize("hasAnyRole('Administrador','Provisional')")
+
 	@DeleteMapping("deletePokemon/{id}")
 	//Delete the pokemon by the pokemon_id
 	public String deletePokemon(@PathVariable long id ) {
