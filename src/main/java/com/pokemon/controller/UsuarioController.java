@@ -48,7 +48,7 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/pokemon/")
 @Api(value="API REST Pokemons")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class UsuarioController {
 	
 	@Autowired
@@ -114,9 +114,6 @@ public class UsuarioController {
 		return usuarioService.deletePokemon(id) ;
 	}
 	
-	
-	
-
     @PostMapping("/signin")
     public ResponseEntity<JWTAuthResponse> authenticateUser(@RequestBody LoginDto loginDto){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
