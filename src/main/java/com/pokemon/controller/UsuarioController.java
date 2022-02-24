@@ -37,6 +37,7 @@ import com.pokemon.request.UpdateUserRequest;
 
 import com.pokemon.request.LoginDto;
 import com.pokemon.security.JwtTokenProvider;
+import com.pokemon.entity.*;
 
 import com.pokemon.service.UsuarioService;
 
@@ -130,6 +131,7 @@ public class UsuarioController {
     public String saludo() {
     	return "hola como estas";
     }
+    
 
 
 }

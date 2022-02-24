@@ -31,7 +31,7 @@ public class UsuarioResponse {
 	private String password;
 	
 	
-	private List<PokemonResponse> tipoPokemon;
+	private List<PokemonResponse> pokemon;
 	
 	public UsuarioResponse (Usuario usuario) {
 		this.id = usuario.getId();
@@ -44,7 +44,7 @@ public class UsuarioResponse {
 		
 		
 		if (usuario.getPokemones() != null) {
-			tipoPokemon = usuario.getPokemones().stream().map(PokemonResponse::new).collect(Collectors.toList());
+			pokemon = usuario.getPokemones().stream().map(PokemonResponse::new).collect(Collectors.toList());
 		}
 	}
 

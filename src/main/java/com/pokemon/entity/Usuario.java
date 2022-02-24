@@ -2,6 +2,7 @@ package com.pokemon.entity;
 
 
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -26,7 +27,7 @@ import lombok.Setter;
 public class Usuario {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "id")
 	private Long id;
 	
@@ -57,5 +58,24 @@ public class Usuario {
 		
 		
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(username);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		return Objects.equals(username, other.username);
+	}
+	
+	
 
 }
