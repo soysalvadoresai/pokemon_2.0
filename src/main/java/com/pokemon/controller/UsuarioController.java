@@ -48,8 +48,10 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/pokemon/")
 @Api(value="API REST Pokemons")
+
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600, 
 	methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE, RequestMethod.PATCH, RequestMethod.DELETE})
+
 public class UsuarioController {
 	
 	@Autowired
@@ -64,6 +66,7 @@ public class UsuarioController {
    
     @Autowired
     private JwtTokenProvider tokenProvider;
+
 
 
 	@GetMapping("pokemons/{id}")
@@ -81,6 +84,7 @@ public class UsuarioController {
 	}
 	
 
+
 	@PostMapping("create")
 	//Create a user 
 	@ApiOperation(value="Register the user on Data Base")
@@ -92,20 +96,21 @@ public class UsuarioController {
 	}
   
 	//@PreAuthorize("hasAnyRole('Administrador','Provisional')")
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+	@CrossOrigin(origins = "*", maxAge = 3600, methods= {RequestMethod.DELETE,RequestMethod.PATCH})
 	@PatchMapping("update")
 	//Update the data for the user
 	public UsuarioResponse updateUser(@Valid @RequestBody UpdateUserRequest updateUser) {
 		return new UsuarioResponse(usuarioService.updateData(updateUser));
 	}
 	
+
 	@GetMapping("user/{id}")
 	//Bring you the hole information about a user
 	public UsuarioResponse getUser(@PathVariable long id) {
 		return new UsuarioResponse(usuarioService.getUserbyId(id));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+	@CrossOrigin(origins = "*", maxAge = 3600, methods= {RequestMethod.DELETE,RequestMethod.PATCH})
 	@DeleteMapping("deletePokemon/{id}")
 	//Delete the pokemon by the pokemon_id
 	public String deletePokemon(@PathVariable long id ) {
