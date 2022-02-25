@@ -78,7 +78,10 @@ public class UsuarioService {
 			user.setTraineerName(updateUser.getTraineerName());
 			user.setTeamName(updateUser.getTeamName());
 			user.setRole(updateUser.getRole());
-			user.setPassword(passwordEncoder.encode(updateUser.getPassword()));
+			
+			if(!updateUser.getPassword().isBlank() && !passwordEncoder.matches(updateUser.getPassword(), user.getPassword()) )
+				user.setPassword(passwordEncoder.encode(updateUser.getPassword()));
+			
 			user = usuarioRepository.save(user);
 		}
 
