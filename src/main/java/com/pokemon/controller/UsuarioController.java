@@ -99,10 +99,10 @@ public class UsuarioController {
 	}
 	
 
-	@GetMapping("user/{id}")
+	@GetMapping("user/{username}")
 	//Bring you the hole information about a user
-	public UsuarioResponse getUser(@PathVariable long id) {
-		return new UsuarioResponse(usuarioService.getUserbyId(id));
+	public UsuarioResponse getUser(@PathVariable String username) {
+		return new UsuarioResponse(usuarioService.getByUsername(username));
 	}
 	
 	@DeleteMapping("deletePokemon/{id}")
