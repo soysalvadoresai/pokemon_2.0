@@ -60,8 +60,9 @@ public class UsuarioService {
 		return usuario;
 	}
 
-	public List<Pokemon> getAllPokemonsByUser(long id) {
-		return pokemonRepository.findByUsuarioId(id);
+	public List<Pokemon> getAllPokemonsByUser(String username) {
+		Usuario usuario = usuarioRepository.findByUsername(username).get();
+		return usuario.getPokemones();
 	}
 
 	public String deletePokemon(long id) {
@@ -78,7 +79,11 @@ public class UsuarioService {
 			user.setTraineerName(updateUser.getTraineerName());
 			user.setTeamName(updateUser.getTeamName());
 			user.setRole(updateUser.getRole());
-			user.setPassword(passwordEncoder.encode(updateUser.getPassword()));
+			
+			
+			if(!updateUser.getPassword().isBlank() && !user.getPassword().equals(updateUser.getPassword())) 
+				user.setPassword(passwordEncoder.encode(updateUser.getPassword()));
+			
 			user = usuarioRepository.save(user);
 		}
 
