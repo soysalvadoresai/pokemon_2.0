@@ -66,10 +66,10 @@ public class UsuarioController {
     @Autowired
     private JwtTokenProvider tokenProvider;
 
-	@GetMapping("pokemons/{id}")
+	@GetMapping("pokemons/{username}")
 	@ApiOperation(value="Obtaining the pokemons team of selected User by id")
-	public List<PokemonResponse> getAllPokemonsByUser(@PathVariable long id) {
-		List<Pokemon> pokemonList = usuarioService.getAllPokemonsByUser(id);
+	public List<PokemonResponse> getAllPokemonsByUser(@PathVariable String username) {
+		List<Pokemon> pokemonList = usuarioService.getAllPokemonsByUser(username);
 		
 		List<PokemonResponse> pokemonResponseList = new ArrayList<PokemonResponse>();
 		

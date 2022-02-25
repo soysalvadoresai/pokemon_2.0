@@ -60,8 +60,9 @@ public class UsuarioService {
 		return usuario;
 	}
 
-	public List<Pokemon> getAllPokemonsByUser(long id) {
-		return pokemonRepository.findByUsuarioId(id);
+	public List<Pokemon> getAllPokemonsByUser(String username) {
+		Usuario usuario = usuarioRepository.findByUsername(username).get();
+		return usuario.getPokemones();
 	}
 
 	public String deletePokemon(long id) {
