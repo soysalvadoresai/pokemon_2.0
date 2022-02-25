@@ -79,7 +79,8 @@ public class UsuarioService {
 			user.setTeamName(updateUser.getTeamName());
 			user.setRole(updateUser.getRole());
 			
-			if(!updateUser.getPassword().isBlank() && !passwordEncoder.matches(updateUser.getPassword(), user.getPassword()) )
+			
+			if(!updateUser.getPassword().isBlank() && !user.getPassword().equals(updateUser.getPassword())) 
 				user.setPassword(passwordEncoder.encode(updateUser.getPassword()));
 			
 			user = usuarioRepository.save(user);
