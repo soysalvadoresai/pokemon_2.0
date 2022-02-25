@@ -105,7 +105,6 @@ public class UsuarioController {
 		return new UsuarioResponse(usuarioService.getUserbyId(id));
 	}
 	
-	@CrossOrigin(origins = "*", maxAge = 3600, methods= {RequestMethod.DELETE,RequestMethod.PATCH})
 	@DeleteMapping("deletePokemon/{id}")
 	//Delete the pokemon by the pokemon_id
 	public String deletePokemon(@PathVariable long id ) {
