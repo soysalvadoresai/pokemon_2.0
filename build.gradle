@@ -25,9 +25,15 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation group: 'com.auth0', name: 'java-jwt', version: '2.0.1'
 	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
-	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.12'
+	
+	// https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter
+	implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
+	
+	//implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.12'
+	
 	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
-	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+	//implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+	
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
