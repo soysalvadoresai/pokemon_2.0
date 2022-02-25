@@ -44,12 +44,15 @@ import io.swagger.annotations.ApiOperation;
 
 
 
+
 @RestController
 @RequestMapping("/pokemon/")
+
 @Api(value="API REST Pokemons")
 
 @CrossOrigin(origins = "*", maxAge = 3600, 
 	methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE, RequestMethod.PATCH, RequestMethod.DELETE})
+
 
 public class UsuarioController {
 	
@@ -65,6 +68,7 @@ public class UsuarioController {
 
     @Autowired
     private JwtTokenProvider tokenProvider;
+
 
 	@GetMapping("pokemons/{username}")
 	@ApiOperation(value="Obtaining the pokemons team of selected User by id")
@@ -93,24 +97,31 @@ public class UsuarioController {
 	//@PreAuthorize("hasAnyRole('Administrador','Provisional')")
 	@CrossOrigin(origins = "*", maxAge = 3600, methods= {RequestMethod.DELETE,RequestMethod.PATCH})
 	@PatchMapping("update")
+	@ApiOperation("Update Data General user & add new Pokemons to the team! ")
 	//Update the data for the user
 	public UsuarioResponse updateUser(@Valid @RequestBody UpdateUserRequest updateUser) {
 		return new UsuarioResponse(usuarioService.updateData(updateUser));
 	}
 	
 
+
 	@GetMapping("user/{username}")
+	@ApiOperation("Get User Information, by id")
 	//Bring you the hole information about a user
 	public UsuarioResponse getUser(@PathVariable String username) {
 		return new UsuarioResponse(usuarioService.getByUsername(username));
 	}
-	
+
+
+	@ApiOperation("Delete pokemon by id")
 	@DeleteMapping("deletePokemon/{id}")
 	//Delete the pokemon by the pokemon_id
 	public String deletePokemon(@PathVariable long id ) {
 		return usuarioService.deletePokemon(id) ;
 	}
 
+
+	@ApiOperation("Sign in Button, to access to the Pokedex")
     @PostMapping("/signin")
     public ResponseEntity<JWTAuthResponse> authenticateUser(@RequestBody LoginDto loginDto){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
@@ -124,5 +135,10 @@ public class UsuarioController {
         return ResponseEntity.ok(new JWTAuthResponse(token));
 
     }
+
+    
+
+
+    
 
 }    
