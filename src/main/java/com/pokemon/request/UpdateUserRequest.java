@@ -34,7 +34,7 @@ public class UpdateUserRequest {
 	@JsonProperty("usuario")
 	private String username;
 	
-	@NotBlank(message = "Password is required")
+	//@NotBlank(message = "Password is required")
 	private String password;
 	
 	@NotNull
